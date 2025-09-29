@@ -1,0 +1,76 @@
+{% extends 'core/base.html' %}
+
+{%block title%}
+market place
+{%endblock%}
+
+{% block body %}
+  <div class="mt-1 px-1 py-12 bg-primary rounded-1 h-100">
+    <div class="bg-success">
+      <h3 class="text-center">put items category here</h3>
+    </div>
+    <div class="d-flex h-100">
+            {% for item in items %}
+        <div class="m-1 w-25 h-auto">
+          <a href="#">
+            <div class="bg-light h-50">
+              <img src="{{item.image.url}}" class="rounded-top-2 w-100 h-100">
+            </div>
+            <div class="p-1 bg-light rounded-bottom-1">
+              <h6 class="text-bold">{{item.name}}</h6>
+              <p class="text-black">₦{{item.price}}</p>
+            </div>
+          </a>
+        </div>
+      {%endfor%}
+    </div>
+  </div>
+
+<div class="p-1 m-1 bg-danger h-25">fix a banner here</div>
+
+  <div class="container mt-1 px-1 py-12 bg-primary rounded-1 h-100">
+    <div class="bg-success mb-1 py-3">
+    <h3 class="text-center">put items category here</h3>
+  </div>
+    <div class="row row-cols-5 gx-3 gy-1 h-100">
+            {% for item in items %}
+        <div class="col m-1 w-25 h-auto">
+          <div class="square-box d-flex bg-primary">
+            <a href="#">
+            <div class="bg-light h-50">
+              <img src="{{item.image.url}}" class="rounded-top-2 w-100 h-100">
+            </div>
+            <div class="p-1 bg-light rounded-bottom-1">
+              <h6 class="text-bold">{{item.name}}</h6>
+              <p class="text-black">₦{{item.price}}</p>
+            </div>
+            </a>
+          </div>
+        </div>
+      {%endfor%}
+    </div>
+  </div>
+ <div class="p-1 m-1 bg-danger h-25">fix a banner here</div>
+
+  <div class="mt-1 px-1 py-12 bg-primary rounded-1 h-100">
+    <div class="bg-success">
+      <h3 class="text-center">put items category here</h3>
+    </div>
+
+    <div class="d-flex h-100">
+            {% for item in items %}
+        <div class="m-1 w-25 h-auto">
+          <a href="#">
+            <div class="bg-light h-50">
+              <img src="{{item.image.url}}" class="rounded-top-2 w-100 h-100">
+            </div>
+            <div class="p-1 bg-light rounded-bottom-1">
+              <h6 class="text-bold">{{item.name}}</h6>
+              <p class="text-black">₦{{item.price}}</p>
+            </div>
+          </a>
+        </div>
+      {%endfor%}
+    </div>
+  </div>
+{% endblock %}

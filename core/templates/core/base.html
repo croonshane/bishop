@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: teal;
+        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;     /* Stays above other content */
+     }
+
+
+      .logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 12px;
+      }
+
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+      }
+
+      .nav-links li {
+        margin-left: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+        transition: color 0.3s;
+      }
+
+      .pr{
+        background-color: green;
+        border-radius: 6px;
+      }
+      .pr :hover {
+        background-color: darkgreen;
+        border-radius: 6px;
+      }
+
+      .nav-links a:hover {
+        color: orange;
+      }
+
+
+      main {
+        margin: 10px;
+      }
+
+      .footer{
+        background-color: rgba(50, 50, 50, 1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px
+        top: 0;
+        left: 0;
+        width: 100%;
+     }
+
+     .foot-links li{
+        margin-right: 20px;
+     }
+
+     .foot-links a{
+        text-decoration: none;
+        color: white;
+        font-size: 12px;
+        transition: color 0.3s;
+
+
+     .foot-links a:hover{
+      color: orange;
+     }
+
+  </style>
+  <title>
+    {%block title%}
+    {%endblock%}
+  </title>
+  <link rel="stylesheet" href="style.css">
+  {% load static %}
+
+  <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+  <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+   <nav class="navbar">
+    <div class="logo">Market</div>
+    <ul class="nav-links">
+      <li><a href="{% url 'core:market' %}">Market Place</a></li>
+      <li><a href="{% url 'core:contact' %}">Contact</a></li>
+
+      {%if request.user.is_authenticated%}
+        <li><a href="#">Profile</a></li>
+        <li><a href="{% url 'item:new' %}">sell?</a></li>
+        <li><a href="{% url 'core:logout' %}" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </li>
+      {%else%}
+        <li class='pr'><a href="{% url 'core:login' %}">Login</a></li>
+        <li class='pr'><a href="{% url 'core:signup' %}">Sign up</a></li>
+      {%endif%}
+    </ul>
+  </nav>
+  <main>
+    {%block body%}
+    {%endblock%}
+  </main class="mb-3">
+  <footer class='footer'>
+    <div class="foot" style="color: floralwhite;">about
+      <p>lorem ipsum bla bla bla bla</p>
+
+    </div>
+    <ul class="foot-links">
+      <li><a href="#">link 1</a></li>
+      <li><a href="#">link 2</a></li>
+      <li><a href="#">link 3</a></li>
+      <li><a href="#">link 4</a></li>
+    </ul>
+  </footer>
+</body>
+</html>
