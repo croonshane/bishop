@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,10 +122,27 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+
+
+
+
+# Templates
+TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "templates")]
+
+# Static files
+STATIC_URL = '/static/'
+
+# This is where collectstatic will copy all static files for deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Where your custom static files live (during development)
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "bishop/static"),
+]
 
 
 # Default primary key field type
@@ -133,11 +151,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Add this at the bottom of settings.py
 
-import os
 
-TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "templates")]
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "bishop/static")
-]
