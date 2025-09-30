@@ -137,7 +137,7 @@ TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "templates")]
 STATIC_URL = '/static/'
 
 # This is where collectstatic will copy all static files for deployment
-STATIC_ROOT = '/home/croonshane/bishop/static/core'
+STATIC_ROOT = '/home/croonshane/bishop/static'
 
 # Where your custom static files live (during development)
 STATICFILES_DIRS = [
