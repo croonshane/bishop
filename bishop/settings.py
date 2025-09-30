@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rmofz&$ezk5)1r3kpi6yqvv+^h4!)nmvh+)k0yil!s0!wy6=hr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['croonshane.pythonanywhere.com']
 
 LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
@@ -137,7 +137,7 @@ TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, "templates")]
 STATIC_URL = '/static/'
 
 # This is where collectstatic will copy all static files for deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/home/croonshane/bishop/static/core'
 
 # Where your custom static files live (during development)
 STATICFILES_DIRS = [
